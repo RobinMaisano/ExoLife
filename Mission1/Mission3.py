@@ -4,10 +4,10 @@ import cv2
 
 img = cv2.imread("img\Europa_surface.pbm", 0)
 imgSize = img.shape
-
+taux = 220
 for i in range(0, imgSize[0]):
     for j in range(0, imgSize[1]):
-        if img[i][j] < 220:
+        if img[i][j] < taux:
             img[i][j] = 0
 
 cv2.imshow('image', img)
