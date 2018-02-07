@@ -18,7 +18,6 @@ for i in range(0, imgSize[0]):
             coord = (i, j)
             highCoord.append(coord)
 
-
 for coordonate in highCoord:
     print(coordonate)
     img = cv2.circle(img, coordonate, 5, (0, 0, 255))
