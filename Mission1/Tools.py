@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 from matplotlib import pyplot as plt
 
 
@@ -25,3 +26,18 @@ def showHist(image):
     # Affichage de l'histogramme de l'image
     plt.hist(image.ravel(), 256, [0, 256])
     plt.show()
+
+
+def fourierTransform(image):
+    # Transformation d'une image en une transformée de Fourier
+    f = np.fft.fft2(image)
+    imgShift = np.fft.fftshift(f)
+    return imgShift
+
+
+def fourierInverse(imageShift):
+    # Inversion d'une transformée de Fourier
+    img2Transform = np.fft.ifftshift(imageShift)
+    imgBack = np.fft.ifft2(img2Transform)
+    imgBack = np.abs(imgBack)
+    return imgBack
