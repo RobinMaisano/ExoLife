@@ -4,6 +4,7 @@ import cv2
 
 image = cv2.imread("img\Europa_surface.pbm", 0)
 
+
 def mission3taux(img):
     imgSize = img.shape
     taux = 150
@@ -15,6 +16,7 @@ def mission3taux(img):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+
 def mission3GaussianThresholding(img):
 
     imgSize = img.shape
@@ -24,6 +26,7 @@ def mission3GaussianThresholding(img):
     # Zone where px will be compared, difference between two px to be considered as different
     cv2.imshow('Image', thGaussian)
     cv2.waitKey(0)
+
 
 def mission3MeanThresholding(img):
 
@@ -35,6 +38,6 @@ def mission3MeanThresholding(img):
     cv2.imshow('Image', thMean)
     cv2.waitKey(0)
 
-#mission3taux(image)
+# mission3taux(image)
 mission3GaussianThresholding(image)
-#mission3MeanThresholding(image)
+# mission3MeanThresholding(image)

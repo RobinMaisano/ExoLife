@@ -1,6 +1,4 @@
-import numpy as np
 import cv2
-import pprint as pp
 
 # Load an color image in grayscale
 img = cv2.imread("img\Encelade_surface.pbm", 0)
@@ -15,6 +13,11 @@ for i in range(0, imgSize[0]):
     for j in range(0, imgSize[1]):
         if img[i][j] > maxi:
             maxi = img[i][j]
+
+
+for i in range(0, imgSize[0]):
+    for j in range(0, imgSize[1]):
+        if img[i][j] == maxi:
             coord = (i, j)
             highCoord.append(coord)
 
@@ -24,8 +27,6 @@ for coordonate in highCoord:
 
 print("Valeur maximale : ", maxi)
 
-
-# pp.pprint(img)
 
 cv2.imshow('image', img)
 cv2.waitKey(0)
