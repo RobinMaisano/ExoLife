@@ -3,10 +3,22 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
+def averageBlur(image):
+    # Application d'un filtre moyenneur
+    filtred = cv2.blur(image, (3, 3))
+    return filtred
+
+
+def gaussianBlur(image):
+    # Application d'un filtre gaussien
+    filtred = cv2.GaussianBlur(image, (3, 3), 0)
+    return filtred
+
+
 def medianBlur(image):
     # Application d'un filtre median dans une range de 3 cases
-    image = cv2.medianBlur(image, 3)
-    return image
+    filtred = cv2.medianBlur(image, 3)
+    return filtred
 
 
 def equalize(image):
