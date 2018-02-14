@@ -1,5 +1,6 @@
 import Tools
 import cv2
+import copy
 import numpy as np
 
 img = cv2.imread("img\\U1_surface.pbm", 0)
@@ -20,7 +21,6 @@ sobelLessDetails = cv2.Sobel(img, cv2.CV_64F, 1, 1, ksize=7)
 
 imgCanni = cv2.Canny(img, 100, 150)
 
-
 # kernelx = np.array([[1,1,1],[0,0,0],[-1,-1,-1]])
 # kernely = np.array([[-1,0,1],[-1,0,1],[-1,0,1]])
 # img_prewittx = cv2.filter2D(imgGaussian, -1, kernelx)
@@ -33,6 +33,9 @@ Tools.showHist(img)
 # equalized = Tools.equalize(img)
 # Tools.showHist(equalized)
 
+sobelcopy = copy.copy(sobel)
+inverted = Tools.binaryFilter(sobelcopy, 12)
+
 cv2.imshow('image', img)
 # cv2.imshow('equalized', equalized)
 cv2.imshow('laplacian', laplacian)
@@ -41,6 +44,7 @@ cv2.imshow('laplacian', laplacian)
 cv2.imshow('Canni', imgCanni)
 # cv2.imshow('edges', edges)
 cv2.imshow('sobel', sobel)
+cv2.imshow('binary', inverted)
 cv2.imshow('sobelLessDetails', sobelLessDetails)
 cv2.waitKey(0)
 cv2.destroyAllWindows()

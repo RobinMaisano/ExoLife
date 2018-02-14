@@ -3,6 +3,18 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
+def binaryFilter(image, k):
+    # Permet de convertir une image en binaire inversée
+    imgSize = image.shape
+    for i in range(0, imgSize[0]):
+        for j in range(0, imgSize[1]):
+            if image[i, j] > k:
+                image[i, j] = 255
+            else:
+                image[i, j] = 0
+    return image
+
+
 def averageBlur(image):
     # Application d'un filtre moyenneur
     filtred = cv2.blur(image, (3, 3))
